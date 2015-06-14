@@ -15,6 +15,10 @@
 		285F001C1B2D316F003B281E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285F001B1B2D316F003B281E /* Images.xcassets */; };
 		285F001F1B2D316F003B281E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285F001D1B2D316F003B281E /* LaunchScreen.xib */; };
 		285F002B1B2D316F003B281E /* WhatsMelbourneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F002A1B2D316F003B281E /* WhatsMelbourneTests.m */; };
+		285F00351B2D3E2F003B281E /* view.png in Resources */ = {isa = PBXBuildFile; fileRef = 285F00341B2D3E2F003B281E /* view.png */; };
+		285F00371B2D3E97003B281E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 285F00361B2D3E97003B281E /* star.png */; };
+		285F003A1B2D4347003B281E /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F00391B2D4347003B281E /* EventsViewController.m */; };
+		285F00401B2D4483003B281E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F003F1B2D4483003B281E /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,12 @@
 		285F00241B2D316F003B281E /* WhatsMelbourneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsMelbourneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F00291B2D316F003B281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F002A1B2D316F003B281E /* WhatsMelbourneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsMelbourneTests.m; sourceTree = "<group>"; };
+		285F00341B2D3E2F003B281E /* view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = view.png; path = ../../../../../../../../Users/2096102/Desktop/IKONS/PNG/32/view.png; sourceTree = "<group>"; };
+		285F00361B2D3E97003B281E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../../../../../Users/2096102/Desktop/IKONS/PNG/32/star.png; sourceTree = "<group>"; };
+		285F00381B2D4347003B281E /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		285F00391B2D4347003B281E /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		285F003E1B2D4483003B281E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		285F003F1B2D4483003B281E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +87,17 @@
 			children = (
 				285F000F1B2D316F003B281E /* AppDelegate.h */,
 				285F00101B2D316F003B281E /* AppDelegate.m */,
+				285F003E1B2D4483003B281E /* Event.h */,
+				285F003F1B2D4483003B281E /* Event.m */,
 				285F00121B2D316F003B281E /* FirstViewController.h */,
 				285F00131B2D316F003B281E /* FirstViewController.m */,
 				285F00151B2D316F003B281E /* SecondViewController.h */,
 				285F00161B2D316F003B281E /* SecondViewController.m */,
 				285F00181B2D316F003B281E /* Main.storyboard */,
+				285F00381B2D4347003B281E /* EventsViewController.h */,
+				285F00391B2D4347003B281E /* EventsViewController.m */,
+				285F00361B2D3E97003B281E /* star.png */,
+				285F00341B2D3E2F003B281E /* view.png */,
 				285F001B1B2D316F003B281E /* Images.xcassets */,
 				285F001D1B2D316F003B281E /* LaunchScreen.xib */,
 				285F000B1B2D316F003B281E /* Supporting Files */,
@@ -205,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				285F001A1B2D316F003B281E /* Main.storyboard in Resources */,
+				285F00371B2D3E97003B281E /* star.png in Resources */,
 				285F001F1B2D316F003B281E /* LaunchScreen.xib in Resources */,
+				285F00351B2D3E2F003B281E /* view.png in Resources */,
 				285F001C1B2D316F003B281E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285F00401B2D4483003B281E /* Event.m in Sources */,
 				285F00171B2D316F003B281E /* SecondViewController.m in Sources */,
+				285F003A1B2D4347003B281E /* EventsViewController.m in Sources */,
 				285F00111B2D316F003B281E /* AppDelegate.m in Sources */,
 				285F00141B2D316F003B281E /* FirstViewController.m in Sources */,
 				285F000E1B2D316F003B281E /* main.m in Sources */,
@@ -418,6 +438,7 @@
 				285F00301B2D316F003B281E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		285F00311B2D316F003B281E /* Build configuration list for PBXNativeTarget "WhatsMelbourneTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +447,7 @@
 				285F00331B2D316F003B281E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
