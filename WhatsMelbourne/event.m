@@ -15,7 +15,9 @@
     
     if ( self ){
         self.title = title;
-        self.startDate = nil;
+        self.dateSummary = nil;
+        self.thumbnail = nil;
+        self.url = nil;
     }
     
     return self;
@@ -25,16 +27,20 @@
     return [[self alloc] initWithTitle:title];
 }
 
-- (NSString *) formattedDate {
-    
-    // format from 2014-11-09 10:00:00 to "EE MMM,dd"
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *tempDate = [dateFormatter dateFromString:self.startDate];
-    
-    [dateFormatter setDateFormat:@"EE MMM,dd"];
-    return [dateFormatter stringFromDate:tempDate];
-    
+- (NSURL *) thumbnailURL {
+    return [NSURL URLWithString:self.thumbnail];
 }
+
+//- (NSString *) formattedDate {
+//    
+//    // format from 2014-11-09 10:00:00 to "EE MMM,dd"
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSDate *tempDate = [dateFormatter dateFromString:self.startDate];
+//    
+//    [dateFormatter setDateFormat:@"EE MMM,dd"];
+//    return [dateFormatter stringFromDate:tempDate];
+//    
+//}
 
 @end

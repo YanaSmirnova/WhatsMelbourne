@@ -10,13 +10,15 @@
 
 @interface Event : NSObject
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *startDate;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *dateSummary;
+@property (nonatomic, strong) NSString *thumbnail;
 @property (nonatomic, strong) NSURL *url;
 
 - (id) initWithTitle:(NSString *)title;
 + (id) eventWithTitle:(NSString *)title;
 
-- (NSString *) formattedDate;
+//- (NSString *) formattedDate;
+- (NSURL *) thumbnailURL;
 
 @end
