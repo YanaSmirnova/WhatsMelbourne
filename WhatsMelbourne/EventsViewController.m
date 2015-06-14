@@ -14,14 +14,19 @@
 
 @implementation EventsViewController
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.events = [NSMutableArray array];
+    [self performAPIRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,58 +39,41 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.events count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *cellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    
+    if ( [event.thumbnail isKindOfClass:[NSString class]]) {
+        NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
+        UIImage *image = [UIImage imageWithData:imageData];        
+        cell.imageView.image = image;
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"image.png"];
+    }
+
+    cell.textLabel.text = event.title;
+    cell.detailTextLabel.text = event.dateSummary;
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -96,5 +84,66 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)performAPIRequest
+{
+    NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.eventfinda.com.au/v2/events.json?rows=2"]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
+    [connection start];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSURLCredential *newCredential = [NSURLCredential credentialWithUser:@"whatsmelbourne"
+                                                                password:@"ghx2cp54rx4w"
+                                                             persistence:NSURLCredentialPersistenceForSession];
+    [[challenge sender] useCredential:newCredential forAuthenticationChallenge:challenge];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    self.apiData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.apiData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSDictionary *apiResponse = [NSJSONSerialization JSONObjectWithData:self.apiData options:kNilOptions error:nil];
+    NSArray *eventsArray = [apiResponse objectForKey:@"events"];
+    
+    for (NSDictionary *eventDictionary in eventsArray) {
+        NSLog(@"%@", [eventDictionary objectForKey:@"name"]);
+        NSLog(@"%@", [eventDictionary objectForKey:@"datetime_summary"]);
+        NSString *thumbnailImage = nil;
+        
+        NSDictionary *images = [eventDictionary objectForKey:@"images"];
+        NSArray *image_collection = [images objectForKey:@"images"];
+        for (NSDictionary *image in image_collection) {
+            
+            if ([[image objectForKey:@"is_primary"] integerValue] == 1) {
+                NSDictionary *transforms = [image objectForKey:@"transforms"];
+                NSArray *transform_collection = [transforms objectForKey:@"transforms"];
+                for (NSDictionary *transform in transform_collection) {
+                    if ([[transform objectForKey:@"transformation_id"] integerValue] == 15) {
+                        NSLog(@"%@", [transform objectForKey:@"url"]);
+                        thumbnailImage = [transform objectForKey:@"url"];
+                    }
+                }
+            }
+        }
+        
+        Event *event = [Event eventWithTitle:[eventDictionary objectForKey:@"name"]];
+        event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
+        event.thumbnail = thumbnailImage;
+        
+        [self.events addObject:event];
+
+        [self.tableView reloadData];
+    }
+}
 
 @end

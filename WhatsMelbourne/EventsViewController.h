@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
-@interface EventsViewController : UITableViewController
+@interface EventsViewController : UITableViewController <NSURLConnectionDelegate>
 
+@property (nonatomic, strong) NSMutableData *apiData;
 @property (nonatomic, strong) NSMutableArray *events;
 
 @end
