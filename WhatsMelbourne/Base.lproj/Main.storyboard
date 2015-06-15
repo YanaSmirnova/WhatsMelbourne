@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--All Events-->
+        <!--Events-->
         <scene sceneID="3na-XL-L16">
             <objects>
                 <tableViewController id="twx-Lw-zgC" customClass="EventsViewController" sceneMemberID="viewController">
@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="86a-F6-CnI" detailTextLabel="m6e-8H-GUg" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="yfD-KN-5tw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="86a-F6-CnI" detailTextLabel="m6e-8H-GUg" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="yfD-KN-5tw">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfD-KN-5tw" id="WBi-pd-i8h">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -34,7 +34,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3Qh-Fs-Qlw" kind="push" identifier="showEvent" id="O4c-VB-8nJ"/>
+                                    <segue destination="3Qh-Fs-Qlw" kind="push" identifier="showEvent" trigger="accessoryAction" id="vJO-Ru-l1U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="twx-Lw-zgC" id="4Re-wG-snV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Events" id="E1O-NP-P6g"/>
+                    <navigationItem key="navigationItem" title="Events" id="E1O-NP-P6g"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIn-xY-ZRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +75,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Esy-g3-iNQ">
-                        <barButtonItem key="rightBarButtonItem" title="Add to Favorites" id="FJY-iX-evn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add to Favorites" id="FJY-iX-evn">
+                            <connections>
+                                <action selector="addEvent:" destination="3Qh-Fs-Qlw" id="Ije-LV-xrr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="plv-dI-MVk" id="wTV-0P-TpC"/>
@@ -199,7 +203,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uTE-el-n2X" kind="push" identifier="showLocations" id="caa-zz-zxh"/>
+                                    <segue destination="uTE-el-n2X" kind="push" identifier="showLocations" trigger="accessoryAction" id="Pjj-g4-P9f"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -243,7 +247,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="twx-Lw-zgC" kind="push" identifier="showByLocation" id="zOf-Zw-Ac0"/>
+                                    <segue destination="twx-Lw-zgC" kind="push" identifier="showByLocation" trigger="accessoryAction" id="Lff-tp-j6c"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -289,6 +293,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zOf-Zw-Ac0"/>
+        <segue reference="Lff-tp-j6c"/>
     </inferredMetricsTieBreakers>
 </document>
