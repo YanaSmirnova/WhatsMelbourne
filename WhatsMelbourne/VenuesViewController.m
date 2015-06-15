@@ -8,10 +8,6 @@
 
 #import "VenuesViewController.h"
 
-@interface VenuesViewController ()
-
-@end
-
 @implementation VenuesViewController
 
 - (void)viewDidLoad {
@@ -66,7 +62,9 @@
 
 - (void)performAPIRequest
 {
-    NSString *urlString = @"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=20";
+//    NSString *urlString = @"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=20";
+
+    NSString *urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=%@",_locationID];
     NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
     [connection start];

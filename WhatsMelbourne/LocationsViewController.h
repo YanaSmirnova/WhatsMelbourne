@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Venue.h"
+#import "Location.h"
 #import "VenuesViewController.h"
 
 @interface LocationsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableData *apiData;
-@property (nonatomic, strong) NSMutableArray *venues;
+@property (nonatomic, strong) NSMutableArray *locations;
 
 @end

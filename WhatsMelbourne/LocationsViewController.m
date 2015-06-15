@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.venues = [NSMutableArray array];
+    self.locations = [NSMutableArray array];
     [self performAPIRequest];
 }
 
@@ -37,7 +37,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.venues count];
+    return [self.locations count];
 }
 
 
@@ -51,17 +51,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    Venue *venue = [self.venues objectAtIndex:indexPath.row];
+    Location *location = [self.locations objectAtIndex:indexPath.row];
    
-    cell.textLabel.text = venue.name;
-    cell.detailTextLabel.text = venue.address;
+    cell.textLabel.text = location.locationName;
+    cell.detailTextLabel.text = location.locationId;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"showVenues" sender:self];
+    [self performSegueWithIdentifier:@"showLocations" sender:self];
 }
 
 - (void)performAPIRequest
@@ -99,9 +99,12 @@
     NSDictionary *children = [melbDictionary objectForKey:@"children"];
     NSDictionary *areasArray = [children objectForKey:@"children"];
     for (NSDictionary *locationDictionary in areasArray) {
-        Venue *venue = [Venue venueWithName:[locationDictionary objectForKey:@"name"]];
-        venue.suburb = [locationDictionary objectForKey:@"name"];
-        [self.venues addObject:venue];
+        Location *location = [Location locationWithName:[locationDictionary objectForKey:@"name"]];
+        location.locationName = [locationDictionary objectForKey:@"name"];
+        NSLog(@"Name is: %@",location.locationName);
+        location.locationId = [[locationDictionary objectForKey:@"id"] stringValue];
+        NSLog(@"Name is: %@",location.locationId);
+        [self.locations addObject:location];
     }
     
     [self.tableView reloadData];
@@ -111,11 +114,11 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"preparing for segue: %@",segue.identifier);
     
-    if ( [segue.identifier isEqualToString:@"showVenues"]){
+    if ( [segue.identifier isEqualToString:@"showLocations"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Venue *venue = [self.venues objectAtIndex:indexPath.row];
+        Location *location = [self.locations objectAtIndex:indexPath.row];
         VenuesViewController *vwc = (VenuesViewController *)segue.destinationViewController;
-//        vwc.locationID = venue.suburb;
+        vwc.locationID = location.locationId;
         
     }
 }
