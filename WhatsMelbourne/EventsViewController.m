@@ -62,7 +62,7 @@
         UIImage *image = [UIImage imageWithData:imageData];        
         cell.imageView.image = image;
     } else {
-        cell.imageView.image = [UIImage imageNamed:@"image.png"];
+        cell.imageView.image = [UIImage imageNamed:@"circle.png"];
     }
 
     cell.textLabel.text = event.title;
