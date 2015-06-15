@@ -16,7 +16,10 @@
 @property (strong, nonatomic) NSString *eventDateSum;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)removeEvent:(id)sender;
 

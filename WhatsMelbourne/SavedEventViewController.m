@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.titleLabel setText:self.eventTitle];
+    [self.dateLabel setText:self.eventDateSum];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +44,19 @@
     if([title isEqualToString:@"OK"])
     {
         NSLog(@"OK was selected.");
-        //        [self saveToCore];
+        
+        NSString *deleteName = self.eventTitle;
+        NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+        NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
+        [fetch setEntity:productEntity];
+        NSPredicate *p=[NSPredicate predicateWithFormat:@"title == %@", deleteName];
+        [fetch setPredicate:p];
+        NSError *fetchError;
+        NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+        // handle error
+        for (NSManagedObject *product in fetchedProducts) {
+            [self.managedObjectContext deleteObject:product];
+        }
     }
     else if([title isEqualToString:@"Cancel"])
     {

@@ -11,8 +11,10 @@
 #import "SavedEventViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface FavoritesViewController : UITableViewController <UIAlertViewDelegate>
+@interface FavoritesViewController : UITableViewController <UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *events;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

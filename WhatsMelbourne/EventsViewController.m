@@ -150,6 +150,7 @@
         Event *event = [Event eventWithTitle:[eventDictionary objectForKey:@"name"]];
         event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
         event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
+//        event.venue = [eventDictionary objectForKey:@"address"];
         event.thumbnail = thumbnailImage;
         
         [self.events addObject:event];
@@ -168,6 +169,7 @@
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
+//        wbc.eventVenue = event.venue;
     }
 }
 

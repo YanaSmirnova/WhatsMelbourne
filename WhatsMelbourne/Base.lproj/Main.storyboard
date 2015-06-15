@@ -82,6 +82,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addEventBtn" destination="FJY-iX-evn" id="LrL-e9-i6C"/>
                         <outlet property="webView" destination="plv-dI-MVk" id="wTV-0P-TpC"/>
                     </connections>
                 </viewController>
@@ -145,27 +146,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV3-58-a81">
-                                <rect key="frame" x="16" y="106" width="288" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV3-58-a81">
+                                <rect key="frame" x="37" y="144" width="260" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="When:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fF-eu-UHu">
+                                <rect key="frame" x="37" y="203" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-fH-0ND">
+                                <rect key="frame" x="37" y="232" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-3j-C5w">
+                                <rect key="frame" x="37" y="115" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XV3-58-a81" firstAttribute="leading" secondItem="Wvp-RT-zdf" secondAttribute="leadingMargin" id="1lg-J6-YS5"/>
-                            <constraint firstItem="XV3-58-a81" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="42" id="fwF-oL-JfZ"/>
+                            <constraint firstItem="9fF-eu-UHu" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="139" id="3q6-di-UBg"/>
+                            <constraint firstItem="Syf-3j-C5w" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="51" id="7fk-Z9-Z4K"/>
+                            <constraint firstItem="4SX-fH-0ND" firstAttribute="top" secondItem="9fF-eu-UHu" secondAttribute="bottom" constant="8" id="8cV-V5-TMq"/>
+                            <constraint firstItem="Syf-3j-C5w" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="DrL-zb-lkS"/>
+                            <constraint firstItem="9fF-eu-UHu" firstAttribute="leading" secondItem="4SX-fH-0ND" secondAttribute="leading" id="GCs-Zd-jWM"/>
+                            <constraint firstItem="Syf-3j-C5w" firstAttribute="leading" secondItem="9fF-eu-UHu" secondAttribute="leading" id="gsy-Uk-2ga"/>
+                            <constraint firstItem="Syf-3j-C5w" firstAttribute="leading" secondItem="Wvp-RT-zdf" secondAttribute="leadingMargin" constant="21" id="iUe-gw-1eb"/>
+                            <constraint firstItem="XV3-58-a81" firstAttribute="top" secondItem="Syf-3j-C5w" secondAttribute="bottom" constant="8" id="jPD-40-dwX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2YB-B0-UwW">
-                        <barButtonItem key="rightBarButtonItem" title="Remove" id="QZu-ka-52f">
-                            <connections>
-                                <action selector="removeEvent:" destination="OaT-h9-Pb0" id="sDr-lF-4NR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="2YB-B0-UwW"/>
                     <connections>
+                        <outlet property="dateLabel" destination="4SX-fH-0ND" id="yVP-P7-Vm1"/>
                         <outlet property="titleLabel" destination="XV3-58-a81" id="YpM-Jg-yUt"/>
                     </connections>
                 </viewController>

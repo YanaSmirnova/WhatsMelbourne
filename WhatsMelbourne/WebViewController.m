@@ -56,6 +56,7 @@
     NSManagedObject *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
     [newEvent setValue:self.eventTitle forKey:@"title"];
     [newEvent setValue:self.eventDateSum forKey:@"dateSummary"];
+//    [newEvent setValue:self.eventDateSum forKey:@"venue"];
     
     NSError *error = nil;
     // Save the object to persistent store
@@ -84,6 +85,7 @@
     {
         NSLog(@"OK was selected.");
         [self saveToCore];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
     }
     else if([title isEqualToString:@"Cancel"])
     {
