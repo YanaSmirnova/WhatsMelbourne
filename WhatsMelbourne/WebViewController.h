@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface WebViewController : UIViewController
+@interface WebViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSURL *eventURL;
 @property (strong, nonatomic) NSString *eventTitle;

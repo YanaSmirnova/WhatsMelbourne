@@ -45,11 +45,11 @@
     return context;
 }
 
-- (IBAction)cancel:(id)sender {
+- (void)cancelSaving {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)save:(id)sender {
+- (void)saveToCore {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Create a new managed object
@@ -66,15 +66,30 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)UIAlertViewmessageUIAlertViewallocinitWithTitleHelloWorldmessageThisisyourfirstUIAlertviewmessagedelegatenilcancelButtonTitleOKotherButtonTitlesniladdEvent:(id)sender {
-}
 - (IBAction)addEvent:(id)sender {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"
-                                                      message:@"This is your first UIAlertview message."
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Add to Favorites"
+                                                      message:@"Do you want to store details of this event?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"OK", nil];
     
     [message show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"OK"])
+    {
+        NSLog(@"OK was selected.");
+        [self saveToCore];
+    }
+    else if([title isEqualToString:@"Cancel"])
+    {
+        NSLog(@"Cancel was selected.");
+        [self cancelSaving];
+    }
+}
+
 @end
