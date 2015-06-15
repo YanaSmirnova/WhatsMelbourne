@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) NSMutableData *apiData;
 @property (nonatomic, strong) NSMutableArray *events;
+@property (nonatomic, strong) NSString *locationSearch;
 
 @end

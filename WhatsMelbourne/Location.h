@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *locationId;
 @property (nonatomic, strong) NSString *locationName;
+@property (nonatomic, strong) NSString *currentEvents;
 
 - (id) initWithName:(NSString *)name;
 + (id) locationWithName:(NSString *)name;

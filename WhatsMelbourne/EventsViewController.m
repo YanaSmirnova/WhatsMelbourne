@@ -37,14 +37,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.events count];
 }
 
@@ -92,7 +88,17 @@
 
 - (void)performAPIRequest
 {
-    NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.eventfinda.com.au/v2/events.json?rows=2"]];
+    NSString *urlString = @"http://api.eventfinda.com.au/v2/events.json?location=20";
+    if (self.locationSearch != nil) {
+        urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/events.json?location=%@",_locationSearch];
+        NSLog(@"Goes from subLocation: %@", urlString);
+    }
+    else {
+        NSLog(@"Show all");
+    }
+    
+    NSURLRequest *apiRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
     [connection start];
 }
@@ -159,8 +165,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Event *event = [self.events objectAtIndex:indexPath.row];
         WebViewController *wbc = (WebViewController *)segue.destinationViewController;
-        wbc.eventURL = event.url;
-    
+        wbc.eventURL = event.url;    
     }
 }
 

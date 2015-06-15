@@ -1,5 +1,5 @@
 //
-//  LocationsViewController.h
+//  SubLocationsViewController.h
 //  WhatsMelbourne
 //
 //  Created by YANA SMIRNOVA on 15/06/2015.
@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Location.h"
-#import "SubLocationsViewController.h"
+#import "EventsViewController.h"
 
-@interface LocationsViewController : UITableViewController
+@interface SubLocationsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableData *apiData;
 @property (nonatomic, strong) NSMutableArray *locations;
+@property (strong, nonatomic) NSString *parentId;
 
 @end

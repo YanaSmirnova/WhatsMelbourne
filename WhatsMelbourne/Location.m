@@ -16,6 +16,7 @@
     if ( self ){
         self.locationName = name;
         self.locationId = nil;
+        self.currentEvents = nil;
     }
     
     return self;

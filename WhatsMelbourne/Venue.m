@@ -15,8 +15,8 @@
     
     if ( self ){
         self.name = name;
-        self.suburb = nil;
-        self.address = nil;
+        self.venueId = nil;
+        self.currentEvents = nil;
     }
     
     return self;

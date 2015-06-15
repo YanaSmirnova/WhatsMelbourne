@@ -18,7 +18,6 @@
 - (id) initWithTitle:(NSString *)title;
 + (id) eventWithTitle:(NSString *)title;
 
-//- (NSString *) formattedDate;
 - (NSURL *) thumbnailURL;
 
 @end

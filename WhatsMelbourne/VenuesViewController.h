@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSMutableData *apiData;
 @property (nonatomic, strong) NSMutableArray *venues;
-@property (strong, nonatomic) NSString *locationID;
-@property (strong, nonatomic) NSString *urlString;
+@property (strong, nonatomic) NSString *subLocationID;
 
 @end

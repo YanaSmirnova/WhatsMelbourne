@@ -1,18 +1,18 @@
 //
-//  LocationsViewController.m
+//  SubLocationsViewController.m
 //  WhatsMelbourne
 //
 //  Created by YANA SMIRNOVA on 15/06/2015.
 //  Copyright (c) 2015 YANA SMIRNOVA. All rights reserved.
 //
 
-#import "LocationsViewController.h"
+#import "SubLocationsViewController.h"
 
-@interface LocationsViewController ()
+@interface SubLocationsViewController ()
 
 @end
 
-@implementation LocationsViewController
+@implementation SubLocationsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,14 +29,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.locations count];
 }
 
@@ -52,7 +48,7 @@
     }
     
     Location *location = [self.locations objectAtIndex:indexPath.row];
-   
+    
     cell.textLabel.text = location.locationName;
     cell.detailTextLabel.text = location.currentEvents;
     
@@ -61,12 +57,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"showLocations" sender:self];
+    [self performSegueWithIdentifier:@"showByLocation" sender:self];
 }
 
 - (void)performAPIRequest
 {
-    NSString *urlString = @"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=20";
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=%@",_parentId];
     NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
     [connection start];
@@ -99,11 +96,14 @@
     NSDictionary *children = [melbDictionary objectForKey:@"children"];
     NSDictionary *areasArray = [children objectForKey:@"children"];
     for (NSDictionary *locationDictionary in areasArray) {
-        Location *location = [Location locationWithName:[locationDictionary objectForKey:@"name"]];
-        location.locationName = [locationDictionary objectForKey:@"name"];
-        location.currentEvents = [[locationDictionary objectForKey:@"count_current_events"] stringValue];
-        location.locationId = [[locationDictionary objectForKey:@"id"] stringValue];
-        [self.locations addObject:location];
+        NSInteger eventNo = [[locationDictionary objectForKey:@"count_current_events"] integerValue];
+        if (eventNo != 0) {
+            Location *location = [Location locationWithName:[locationDictionary objectForKey:@"name"]];
+            location.locationName = [locationDictionary objectForKey:@"name"];
+            location.locationId = [[locationDictionary objectForKey:@"id"] stringValue];
+            location.currentEvents = [[locationDictionary objectForKey:@"count_current_events"] stringValue];
+            [self.locations addObject:location];
+        }
     }
     
     [self.tableView reloadData];
@@ -112,11 +112,12 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ( [segue.identifier isEqualToString:@"showLocations"]){
+    if ( [segue.identifier isEqualToString:@"showByLocation"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Location *location = [self.locations objectAtIndex:indexPath.row];
-        SubLocationsViewController *slwc = (SubLocationsViewController *)segue.destinationViewController;
-        slwc.parentId = location.locationId;
+        EventsViewController *ewc = (EventsViewController *)segue.destinationViewController;
+        ewc.locationSearch = location.locationId;
+        NSLog(@"%@", location.locationId);
     }
 }
 

@@ -8,6 +8,10 @@
 
 #import "VenuesViewController.h"
 
+@interface VenuesViewController()
+
+@end
+
 @implementation VenuesViewController
 
 - (void)viewDidLoad {
@@ -44,27 +48,26 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
     Venue *venue = [self.venues objectAtIndex:indexPath.row];
     
     cell.textLabel.text = venue.name;
-    cell.detailTextLabel.text = venue.address;
+    cell.detailTextLabel.text = venue.currentEvents;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"showVenues" sender:self];
+//    [self performSegueWithIdentifier:@"showVenues" sender:self];
 }
 
 - (void)performAPIRequest
 {
-//    NSString *urlString = @"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=20";
-
-    NSString *urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=%@",_locationID];
+//    NSString *urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/locations.json?location=%@&venue=on",_subLocationID];
+    NSString *urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/locations.json?location=8071&venue=on"];
     NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
     [connection start];
@@ -92,14 +95,13 @@
 {
     NSDictionary *apiResponse = [NSJSONSerialization JSONObjectWithData:self.apiData options:kNilOptions error:nil];
     NSArray *locationsArray = [apiResponse objectForKey:@"locations"];
-    NSDictionary *melbDictionary = locationsArray[0];
-    
-    NSDictionary *children = [melbDictionary objectForKey:@"children"];
-    NSDictionary *areasArray = [children objectForKey:@"children"];
-    for (NSDictionary *locationDictionary in areasArray) {
-        Venue *venue = [Venue venueWithName:[locationDictionary objectForKey:@"name"]];
-        venue.suburb = [locationDictionary objectForKey:@"name"];
-        [self.venues addObject:venue];
+    for (NSDictionary *locationDictionary in locationsArray) {
+        NSInteger eventNo = [[locationDictionary objectForKey:@"count_current_events"] integerValue];
+//        if (eventNo != 0) {
+            Venue *venue = [Venue venueWithName:[locationDictionary objectForKey:@"name"]];
+            venue.currentEvents = [[locationDictionary objectForKey:@"count_current_events"] stringValue];
+            [self.venues addObject:venue];
+//        }        
     }
     
     [self.tableView reloadData];
