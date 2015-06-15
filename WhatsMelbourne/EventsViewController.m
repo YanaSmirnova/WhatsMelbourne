@@ -165,7 +165,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Event *event = [self.events objectAtIndex:indexPath.row];
         WebViewController *wbc = (WebViewController *)segue.destinationViewController;
-        wbc.eventURL = event.url;    
+        wbc.eventURL = event.url;
+        wbc.eventTitle = event.title;
+        wbc.eventDateSum = event.dateSummary;
     }
 }
 

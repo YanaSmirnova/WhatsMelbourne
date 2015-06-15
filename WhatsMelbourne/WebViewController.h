@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface WebViewController : UIViewController
 
 @property (strong, nonatomic) NSURL *eventURL;
+@property (strong, nonatomic) NSString *eventTitle;
+@property (strong, nonatomic) NSString *eventDateSum;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+- (IBAction)addEvent:(id)sender;
+
 
 @end
