@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import "WebViewController.h"
+#import "SimpleTableCell.h"
 
 @interface EventsViewController : UITableViewController <NSURLConnectionDelegate>
 

@@ -47,12 +47,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"SimpleTableCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     Event *event = [self.events objectAtIndex:indexPath.row];
@@ -60,13 +61,13 @@
     if ( [event.thumbnail isKindOfClass:[NSString class]]) {
         NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
         UIImage *image = [UIImage imageWithData:imageData];        
-        cell.imageView.image = image;
+        cell.thumbnailImageView.image = image;
     } else {
-        cell.imageView.image = [UIImage imageNamed:@"circle.png"];
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"circle.png"];
     }
-
-    cell.textLabel.text = event.title;
-    cell.detailTextLabel.text = event.dateSummary;    
+    
+    cell.nameLabel.text = event.title;
+    cell.dateLabel.text = event.dateSummary;
     
     return cell;
 }
