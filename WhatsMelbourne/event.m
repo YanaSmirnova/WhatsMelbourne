@@ -18,7 +18,7 @@
         self.dateSummary = nil;
         self.thumbnail = nil;
         self.url = nil;
-//        self.venue = nil;
+        self.venue = nil;
     }
     
     return self;

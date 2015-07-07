@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;
 @property (strong, nonatomic) NSData *eventImage;
-//@property (strong, nonatomic) NSString *eventVenue;
+@property (strong, nonatomic) NSString *eventVenue;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEventBtn;

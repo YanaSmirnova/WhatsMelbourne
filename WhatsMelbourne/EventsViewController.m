@@ -92,10 +92,6 @@
     NSString *urlString = @"http://api.eventfinda.com.au/v2/events.json?location=20";
     if (self.locationSearch != nil) {
         urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/events.json?location=%@",_locationSearch];
-        NSLog(@"Goes from subLocation: %@", urlString);
-    }
-    else {
-        NSLog(@"Show all");
     }
     
     NSURLRequest *apiRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -141,7 +137,6 @@
                 NSArray *transform_collection = [transforms objectForKey:@"transforms"];
                 for (NSDictionary *transform in transform_collection) {
                     if ([[transform objectForKey:@"transformation_id"] integerValue] == 15) {
-                        NSLog(@"%@", [transform objectForKey:@"url"]);
                         thumbnailImage = [transform objectForKey:@"url"];
                     }
                 }
@@ -151,7 +146,7 @@
         Event *event = [Event eventWithTitle:[eventDictionary objectForKey:@"name"]];
         event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
         event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
-//        event.venue = [eventDictionary objectForKey:@"address"];
+        event.venue = [eventDictionary objectForKey:@"address"];
         event.thumbnail = thumbnailImage;
         
         [self.events addObject:event];
@@ -161,7 +156,6 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"preparing for segue: %@",segue.identifier);
     
     if ( [segue.identifier isEqualToString:@"showEvent"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -170,10 +164,10 @@
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
+        wbc.eventVenue = event.venue;
         
         NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
         wbc.eventImage = imageData;
-//        wbc.eventVenue = event.venue;
     }
 }
 

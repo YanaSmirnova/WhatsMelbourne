@@ -57,7 +57,7 @@
     [newEvent setValue:self.eventTitle forKey:@"title"];
     [newEvent setValue:self.eventDateSum forKey:@"dateSummary"];
     [newEvent setValue:self.eventImage forKey:@"imageThumb"];
-//    [newEvent setValue:self.eventDateSum forKey:@"venue"];
+    [newEvent setValue:self.eventVenue forKey:@"venue"];
     
     NSError *error = nil;
     // Save the object to persistent store

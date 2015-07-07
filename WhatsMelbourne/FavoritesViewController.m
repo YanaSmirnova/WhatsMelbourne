@@ -69,16 +69,31 @@
         }
         case NSFetchedResultsChangeUpdate: {
             
-            static NSString *cellIdentifier = @"Cell";
+            static NSString *cellIdentifier = @"SimpleTableCell";
             
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-
+            SimpleTableCell *cell = (SimpleTableCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            if (!cell) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
             // Fetch Record
             NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
             
             // Update Cell
-            [cell.textLabel setText:[record valueForKey:@"title"]];
-            [cell.detailTextLabel setText:[record valueForKey:@"dateSummary"]];
+            [cell.nameLabel setText:[record valueForKey:@"title"]];
+            [cell.dateLabel setText:[record valueForKey:@"dateSummary"]];
+            
+            if ([record valueForKey:@"imageThumb"] == nil) {
+                cell.thumbnailImageView.image = [UIImage imageNamed:@"square.png"];
+            } else {
+                NSData *imageData = [record valueForKey:@"imageThumb"];
+                UIImage *image = [UIImage imageWithData:imageData];
+                cell.thumbnailImageView.image = image;
+            }
+
+            
             break;
         }
         case NSFetchedResultsChangeMove: {
@@ -153,7 +168,6 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"preparing for segue: %@",segue.identifier);
     
     if ( [segue.identifier isEqualToString:@"showSavedEvent"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -162,6 +176,7 @@
         sevc.eventTitle = [record valueForKey:@"title"];
         sevc.eventDateSum = [record valueForKey:@"dateSummary"];
         sevc.eventImageData = [record valueForKey:@"imageThumb"];
+        sevc.eventVenue = [record valueForKey:@"venue"];
     }
 }
 

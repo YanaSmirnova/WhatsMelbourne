@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view.
     [self.titleLabel setText:self.eventTitle];
     [self.dateLabel setText:self.eventDateSum];
+    [self.venueLabel setText:self.eventVenue];
     
     if (self.eventImageData == nil) {
         self.imageThumb.image = [UIImage imageNamed:@"square.png"];
