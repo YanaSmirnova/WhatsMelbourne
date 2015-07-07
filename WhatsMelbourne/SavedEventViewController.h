@@ -14,10 +14,12 @@
 @property (strong, nonatomic) NSURL *eventURL;
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;
+@property (strong, nonatomic) NSData *eventImageData;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *venueLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageThumb;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

@@ -21,6 +21,13 @@
     // Do any additional setup after loading the view.
     [self.titleLabel setText:self.eventTitle];
     [self.dateLabel setText:self.eventDateSum];
+    
+    if (self.eventImageData == nil) {
+        self.imageThumb.image = [UIImage imageNamed:@"square.png"];
+    } else {
+        UIImage *image = [UIImage imageWithData:self.eventImageData];
+        self.imageThumb.image = image;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
