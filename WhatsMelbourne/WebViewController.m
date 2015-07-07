@@ -56,6 +56,7 @@
     NSManagedObject *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
     [newEvent setValue:self.eventTitle forKey:@"title"];
     [newEvent setValue:self.eventDateSum forKey:@"dateSummary"];
+    [newEvent setValue:self.eventImage forKey:@"imageThumb"];
 //    [newEvent setValue:self.eventDateSum forKey:@"venue"];
     
     NSError *error = nil;

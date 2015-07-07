@@ -63,7 +63,7 @@
         UIImage *image = [UIImage imageWithData:imageData];        
         cell.thumbnailImageView.image = image;
     } else {
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"circle.png"];
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"square.png"];
     }
     
     cell.nameLabel.text = event.title;
@@ -170,6 +170,9 @@
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
+        wbc.eventImage = imageData;
 //        wbc.eventVenue = event.venue;
     }
 }

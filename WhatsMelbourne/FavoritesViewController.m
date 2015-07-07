@@ -110,22 +110,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"SimpleTableCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     // Fetch Record
     NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Update Cell
-    [cell.textLabel setText:[record valueForKey:@"title"]];
-    [cell.detailTextLabel setText:[record valueForKey:@"dateSummary"]];
-
-
+    [cell.nameLabel setText:[record valueForKey:@"title"]];
+    [cell.dateLabel setText:[record valueForKey:@"dateSummary"]];
+    
+    if ([record valueForKey:@"imageThumb"] == nil) {
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"square.png"];        
+    } else {
+        NSData *imageData = [record valueForKey:@"imageThumb"];
+        UIImage *image = [UIImage imageWithData:imageData];
+        cell.thumbnailImageView.image = image;
+    }
+    
     return cell;
 }
 

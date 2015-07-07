@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import "SavedEventViewController.h"
+#import "SimpleTableCell.h"
 #import <CoreData/CoreData.h>
 
 @interface FavoritesViewController : UITableViewController <UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
