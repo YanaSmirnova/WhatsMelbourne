@@ -18,7 +18,6 @@
 		288324741B4BAA50009F70C6 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288324731B4BAA50009F70C6 /* SimpleTableCell.xib */; };
 		2883247A1B4BB29D009F70C6 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 288324791B4BB29D009F70C6 /* SimpleTableCell.m */; };
 		28B7EAEE1B2E4B740084B62F /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B7EAED1B2E4B740084B62F /* LocationsViewController.m */; };
-		28B7EAF11B2E5AAD0084B62F /* Networker.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B7EAF01B2E5AAD0084B62F /* Networker.m */; };
 		28B7EAFA1B2E96710084B62F /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B7EAF91B2E96710084B62F /* Location.m */; };
 		28B7EAFD1B2E9E570084B62F /* SubLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B7EAFC1B2E9E570084B62F /* SubLocationsViewController.m */; };
 		28B7EAFF1B2EC4FA0084B62F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B7EAFE1B2EC4FA0084B62F /* CoreData.framework */; };
@@ -63,8 +62,6 @@
 		288324791B4BB29D009F70C6 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 		28B7EAEC1B2E4B740084B62F /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
 		28B7EAED1B2E4B740084B62F /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
-		28B7EAEF1B2E5AAD0084B62F /* Networker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networker.h; sourceTree = "<group>"; };
-		28B7EAF01B2E5AAD0084B62F /* Networker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Networker.m; sourceTree = "<group>"; };
 		28B7EAF81B2E96710084B62F /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		28B7EAF91B2E96710084B62F /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		28B7EAFB1B2E9E570084B62F /* SubLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLocationsViewController.h; sourceTree = "<group>"; };
@@ -132,8 +129,6 @@
 				28C25B201B2D8FCD00EF1D3D /* WebViewController.m */,
 				285F00381B2D4347003B281E /* EventsViewController.h */,
 				285F00391B2D4347003B281E /* EventsViewController.m */,
-				28B7EAEF1B2E5AAD0084B62F /* Networker.h */,
-				28B7EAF01B2E5AAD0084B62F /* Networker.m */,
 				28B7EAEC1B2E4B740084B62F /* LocationsViewController.h */,
 				28B7EAED1B2E4B740084B62F /* LocationsViewController.m */,
 				28B7EAFB1B2E9E570084B62F /* SubLocationsViewController.h */,
@@ -307,7 +302,6 @@
 				28B7EAFD1B2E9E570084B62F /* SubLocationsViewController.m in Sources */,
 				28C25B211B2D8FCD00EF1D3D /* WebViewController.m in Sources */,
 				285F003A1B2D4347003B281E /* EventsViewController.m in Sources */,
-				28B7EAF11B2E5AAD0084B62F /* Networker.m in Sources */,
 				285F00111B2D316F003B281E /* AppDelegate.m in Sources */,
 				28B7EAFA1B2E96710084B62F /* Location.m in Sources */,
 				28B7EB3A1B2F02590084B62F /* FavoritesViewController.m in Sources */,

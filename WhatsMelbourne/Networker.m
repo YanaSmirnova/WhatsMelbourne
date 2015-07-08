@@ -10,14 +10,56 @@
 
 @implementation Networker
 
-- (void)performAPIRequest
+- (void)performAPIRequest:(NSURL *)url
 {
-    NSString *urlString = @"http://api.eventfinda.com.au/v2/locations.json?levels=2&id=20";
-    NSLog(@"Performing request");
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     
-    NSURLRequest *apiRequest    = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:apiRequest delegate:self];
-    [connection start];
+    NSString *authStr = @"whatsmelbourne:ghx2cp54rx4w";
+    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authValue = [NSString stringWithFormat: @"Basic %@",[authData base64EncodedStringWithOptions:0]];
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        
+        NSData *data = [[NSData alloc] initWithContentsOfURL:location];
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        
+        NSArray *eventsArray = [responseDictionary objectForKey:@"events"];
+        
+        for (NSDictionary *eventDictionary in eventsArray) {
+            
+            NSString *thumbnailImage = nil;
+            
+            NSDictionary *images = [eventDictionary objectForKey:@"images"];
+            NSArray *image_collection = [images objectForKey:@"images"];
+            for (NSDictionary *image in image_collection) {
+                
+                if ([[image objectForKey:@"is_primary"] integerValue] == 1) {
+                    NSDictionary *transforms = [image objectForKey:@"transforms"];
+                    NSArray *transform_collection = [transforms objectForKey:@"transforms"];
+                    for (NSDictionary *transform in transform_collection) {
+                        if ([[transform objectForKey:@"transformation_id"] integerValue] == 15) {
+                            thumbnailImage = [transform objectForKey:@"url"];
+                        }
+                    }
+                }
+            }
+            
+            Event *event = [Event eventWithTitle:[eventDictionary objectForKey:@"name"]];
+            event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
+            event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
+            event.venue = [eventDictionary objectForKey:@"address"];
+            event.thumbnail = thumbnailImage;
+            
+            [self.events addObject:event];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    }];
+    
+    [task resume];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
