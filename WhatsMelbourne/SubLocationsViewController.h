@@ -12,7 +12,6 @@
 
 @interface SubLocationsViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableData *apiData;
 @property (nonatomic, strong) NSMutableArray *locations;
 @property (strong, nonatomic) NSString *parentId;
 
