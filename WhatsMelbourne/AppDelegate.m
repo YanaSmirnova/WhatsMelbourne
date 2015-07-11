@@ -18,6 +18,8 @@
     // Override point for customization after application launch.
     [NSThread sleepForTimeInterval:1.5];
     
+    [self customizeUserInterface];
+    
     return YES;
 }
 
@@ -41,6 +43,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Helper methods
+
+- (void)customizeUserInterface {
+    // Customize nav bar
+    
+//    UIColor * color = [UIColor colorWithRed:43/255.0f green:57/255.0f blue:144/255.0f alpha:1.0f];
+//    [[UINavigationBar appearance] setBarTintColor:color];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Core Data stack
