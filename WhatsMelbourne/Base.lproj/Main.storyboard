@@ -257,11 +257,11 @@
             </objects>
             <point key="canvasLocation" x="-24" y="181"/>
         </scene>
-        <!--See All-->
+        <!--All Events-->
         <scene sceneID="iDc-3m-3pK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JKj-uy-HKw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="See All" image="view.png" id="3ho-JF-MC0"/>
+                    <tabBarItem key="tabBarItem" title="All Events" image="Search" id="3ho-JF-MC0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tTg-c3-Kef">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -276,11 +276,11 @@
             </objects>
             <point key="canvasLocation" x="618" y="181"/>
         </scene>
-        <!--Saved-->
+        <!--Going-->
         <scene sceneID="K4Z-NI-XBz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c3d-M6-KEY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" image="star.png" id="qyb-tL-Inn"/>
+                    <tabBarItem key="tabBarItem" title="Going" image="Favorites" id="qyb-tL-Inn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MTP-1g-vDd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -387,7 +387,7 @@
         <scene sceneID="Pi0-QQ-1PG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eUD-Ri-SCz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="By Location" image="globe.png" id="VQP-tF-Ctz"/>
+                    <tabBarItem key="tabBarItem" title="By Location" image="Near_Me" id="VQP-tF-Ctz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JB0-P0-uEm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -404,11 +404,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="globe.png" width="32" height="32"/>
-        <image name="star.png" width="32" height="32"/>
+        <image name="Favorites" width="27" height="26"/>
+        <image name="Near_Me" width="25" height="25"/>
+        <image name="Search" width="25" height="24"/>
         <image name="tabBarBackground" width="1" height="1"/>
         <image name="tabBarSelectedBackground" width="107" height="49"/>
-        <image name="view.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -416,6 +416,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Lff-tp-j6c"/>
+        <segue reference="x8n-nd-9Cb"/>
     </inferredMetricsTieBreakers>
 </document>
