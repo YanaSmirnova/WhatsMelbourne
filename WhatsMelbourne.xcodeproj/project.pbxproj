@@ -11,7 +11,6 @@
 		285F00111B2D316F003B281E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F00101B2D316F003B281E /* AppDelegate.m */; };
 		285F001A1B2D316F003B281E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F00181B2D316F003B281E /* Main.storyboard */; };
 		285F001C1B2D316F003B281E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285F001B1B2D316F003B281E /* Images.xcassets */; };
-		285F001F1B2D316F003B281E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285F001D1B2D316F003B281E /* LaunchScreen.xib */; };
 		285F002B1B2D316F003B281E /* WhatsMelbourneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F002A1B2D316F003B281E /* WhatsMelbourneTests.m */; };
 		285F003A1B2D4347003B281E /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F00391B2D4347003B281E /* EventsViewController.m */; };
 		285F00401B2D4483003B281E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F003F1B2D4483003B281E /* Event.m */; };
@@ -49,7 +48,6 @@
 		285F00101B2D316F003B281E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		285F00191B2D316F003B281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		285F001B1B2D316F003B281E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		285F001E1B2D316F003B281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		285F00241B2D316F003B281E /* WhatsMelbourneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsMelbourneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F00291B2D316F003B281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F002A1B2D316F003B281E /* WhatsMelbourneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsMelbourneTests.m; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				28B7EAF81B2E96710084B62F /* Location.h */,
 				28B7EAF91B2E96710084B62F /* Location.m */,
 				285F001B1B2D316F003B281E /* Images.xcassets */,
-				285F001D1B2D316F003B281E /* LaunchScreen.xib */,
 				285F000B1B2D316F003B281E /* Supporting Files */,
 				288324731B4BAA50009F70C6 /* SimpleTableCell.xib */,
 				288324781B4BB29D009F70C6 /* SimpleTableCell.h */,
@@ -275,7 +272,6 @@
 				288324741B4BAA50009F70C6 /* SimpleTableCell.xib in Resources */,
 				76F7D0121B2F26FC00837E94 /* globe.png in Resources */,
 				285F001A1B2D316F003B281E /* Main.storyboard in Resources */,
-				285F001F1B2D316F003B281E /* LaunchScreen.xib in Resources */,
 				285F001C1B2D316F003B281E /* Images.xcassets in Resources */,
 				76F7D0161B2F272800837E94 /* view.png in Resources */,
 				76F7D0131B2F26FC00837E94 /* star.png in Resources */,
@@ -336,14 +332,6 @@
 				285F00191B2D316F003B281E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		285F001D1B2D316F003B281E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				285F001E1B2D316F003B281E /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -429,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WhatsMelbourne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WhatsMelbourne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
