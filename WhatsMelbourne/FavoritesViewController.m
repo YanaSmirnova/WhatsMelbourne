@@ -177,6 +177,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
         SavedEventViewController *sevc = (SavedEventViewController *)segue.destinationViewController;
+        sevc.eventId = [record valueForKey:@"id"];
         sevc.eventTitle = [record valueForKey:@"title"];
         sevc.eventDateSum = [record valueForKey:@"dateSummary"];
         sevc.eventImageThumb = [record valueForKey:@"imageThumb"];
@@ -186,4 +187,18 @@
 }
 
 
+- (IBAction)clearBtn:(id)sender {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    error = nil;
+    [self.managedObjectContext save:&error];
+}
 @end

@@ -11,6 +11,7 @@
 @interface SavedEventViewController : UIViewController <UIAlertViewDelegate>
 
 //@property (nonatomic, strong) NSMutableArray *events;
+@property (strong, nonatomic) NSNumber *eventId;
 @property (strong, nonatomic) NSURL *eventURL;
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageThumb;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *removeEventBtn;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

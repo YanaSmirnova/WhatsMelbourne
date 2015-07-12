@@ -54,6 +54,10 @@
     
     // Create a new managed object
     NSManagedObject *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+    
+    NSNumber *idNumber = [NSNumber numberWithInt:self.eventId];
+    [newEvent setValue:idNumber forKey:@"id"];
+    
     [newEvent setValue:self.eventTitle forKey:@"title"];
     [newEvent setValue:self.eventDateSum forKey:@"dateSummary"];
     

@@ -11,6 +11,7 @@
 
 @interface WebViewController : UIViewController <UIAlertViewDelegate>
 
+@property int eventId;
 @property (strong, nonatomic) NSURL *eventURL;
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;

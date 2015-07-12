@@ -121,13 +121,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Favourites" id="uyF-zw-nMa">
                         <barButtonItem key="backBarButtonItem" title="Back" id="1Oq-5W-me9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="FjQ-am-vxG">
+                            <connections>
+                                <action selector="clearBtn:" destination="gMb-6b-x7A" id="kf4-o6-uiP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taZ-eZ-vQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1144" y="-552"/>
         </scene>
-        <!--Event Details-->
+        <!--Title-->
         <scene sceneID="PYd-xE-Dp6">
             <objects>
                 <viewController id="OaT-h9-Pb0" customClass="SavedEventViewController" sceneMemberID="viewController">
@@ -140,14 +145,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="167" translatesAutoresizingMaskIntoConstraints="NO" id="9N0-wd-g4T">
-                                <rect key="frame" x="34" y="85" width="251" height="168"/>
+                                <rect key="frame" x="35" y="98" width="251" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="5dZ-sP-6mh"/>
                                     <constraint firstAttribute="width" constant="251" id="CF9-C5-8hd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV3-58-a81">
-                                <rect key="frame" x="34" y="282" width="250" height="21"/>
+                                <rect key="frame" x="35" y="295" width="250" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="p3L-nZ-GJC"/>
                                 </constraints>
@@ -156,7 +161,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBa-OD-RhY">
-                                <rect key="frame" x="34" y="372" width="250" height="21"/>
+                                <rect key="frame" x="35" y="385" width="250" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="J8K-FF-rvz"/>
                                 </constraints>
@@ -165,7 +170,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-fH-0ND">
-                                <rect key="frame" x="34" y="328" width="250" height="21"/>
+                                <rect key="frame" x="35" y="341" width="250" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="P6z-hu-dL3"/>
                                 </constraints>
@@ -176,9 +181,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9N0-wd-g4T" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="21" id="2D7-Cw-ipf"/>
+                            <constraint firstItem="9N0-wd-g4T" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="34" id="2D7-Cw-ipf"/>
                             <constraint firstItem="9N0-wd-g4T" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="Poh-vi-1ar"/>
-                            <constraint firstAttribute="centerX" secondItem="9N0-wd-g4T" secondAttribute="centerX" constant="0.5" id="VDW-Zp-XTM"/>
+                            <constraint firstAttribute="centerX" secondItem="9N0-wd-g4T" secondAttribute="centerX" constant="-0.5" id="VDW-Zp-XTM"/>
                             <constraint firstItem="XV3-58-a81" firstAttribute="top" secondItem="9N0-wd-g4T" secondAttribute="bottom" constant="29" id="bEF-rS-4ST"/>
                             <constraint firstItem="4SX-fH-0ND" firstAttribute="top" secondItem="XV3-58-a81" secondAttribute="bottom" constant="25" id="sAh-hE-C7M"/>
                             <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="rBa-OD-RhY" secondAttribute="leading" id="voL-7g-PFE"/>
@@ -186,12 +191,17 @@
                             <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="wVc-Vd-JDB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Details" id="2YB-B0-UwW">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="sd0-ac-tqv"/>
+                    <navigationItem key="navigationItem" title="Title" id="Fbe-Yh-WD0">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="1Gs-3w-f0C">
+                            <connections>
+                                <action selector="removeEvent:" destination="OaT-h9-Pb0" id="cJn-MC-MMq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="4SX-fH-0ND" id="yVP-P7-Vm1"/>
                         <outlet property="imageThumb" destination="9N0-wd-g4T" id="lZl-SB-KRT"/>
+                        <outlet property="removeEventBtn" destination="1Gs-3w-f0C" id="30M-8S-VgC"/>
                         <outlet property="titleLabel" destination="XV3-58-a81" id="YpM-Jg-yUt"/>
                         <outlet property="venueLabel" destination="rBa-OD-RhY" id="ULh-NO-rEz"/>
                     </connections>

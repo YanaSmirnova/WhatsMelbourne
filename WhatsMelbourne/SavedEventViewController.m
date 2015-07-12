@@ -44,6 +44,16 @@
     
     [message show];}
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
@@ -52,18 +62,22 @@
     {
         NSLog(@"OK was selected.");
         
-        NSString *deleteName = self.eventTitle;
-        NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+        NSNumber *deleteId = self.eventId;
+        NSEntityDescription *eventEntity=[NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
         NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
-        [fetch setEntity:productEntity];
-        NSPredicate *p=[NSPredicate predicateWithFormat:@"title == %@", deleteName];
+        [fetch setEntity:eventEntity];
+        NSPredicate *p=[NSPredicate predicateWithFormat:@"id == %@", deleteId.stringValue];
         [fetch setPredicate:p];
-        NSError *fetchError;
-        NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+        NSError *fetchError = nil;
+        NSArray *fetchedEvents=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
         // handle error
-        for (NSManagedObject *product in fetchedProducts) {
-            [self.managedObjectContext deleteObject:product];
+        for (NSManagedObject *event in fetchedEvents) {
+            [self.managedObjectContext deleteObject:event];
         }
+        [self.managedObjectContext save:&fetchError];
+        
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else if([title isEqualToString:@"Cancel"])
     {

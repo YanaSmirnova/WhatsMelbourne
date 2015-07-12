@@ -15,6 +15,7 @@
     
     if ( self ){
         self.title = title;
+        self.numberId = 0;
         self.dateSummary = nil;
         self.thumbnail = nil;
         self.biggerImage = nil;

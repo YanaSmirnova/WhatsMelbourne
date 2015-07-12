@@ -10,6 +10,7 @@
 
 @interface Event : NSObject
 
+@property int numberId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *dateSummary;
 @property (nonatomic, strong) NSString *venue;

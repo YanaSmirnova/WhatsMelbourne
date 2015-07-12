@@ -136,6 +136,7 @@
                 }
         
                 Event *event = [Event eventWithTitle:[eventDictionary objectForKey:@"name"]];
+                event.numberId = [[eventDictionary objectForKey:@"id"] integerValue];
                 event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
                 event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
                 event.venue = [eventDictionary objectForKey:@"address"];
@@ -166,6 +167,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Event *event = [self.events objectAtIndex:indexPath.row];
         WebViewController *wbc = (WebViewController *)segue.destinationViewController;
+        wbc.eventId = event.numberId;
+        NSLog(@"ID passed: %d", event.numberId);
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
