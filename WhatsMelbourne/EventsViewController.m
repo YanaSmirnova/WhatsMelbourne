@@ -101,6 +101,7 @@
 
 - (void)performAPIRequest
 {
+    [self testInternetConnection];
     [self.events removeAllObjects];
     
     NSString *urlString = @"http://api.eventfinda.com.au/v2/events.json?location=20";
@@ -175,6 +176,38 @@
     
     NSLog(@"Data Refreshed");
     [task resume];
+}
+
+// Checks if we have an internet connection or not
+- (void)testInternetConnection
+{
+    internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Internet is reachable
+    internetReachableFoo.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Yayyy, we have the interwebs!");
+        });
+    };
+    
+    // Internet is not reachable
+    internetReachableFoo.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Someone broke the internet :(");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                            message:@"You must be connected to the internet to browse events. Meanwhile, you can see your bookmarked events offline."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        });
+    };
+    
+    [internetReachableFoo startNotifier];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

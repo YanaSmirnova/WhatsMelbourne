@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283860531B528E1C007723E6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 283860521B528E1C007723E6 /* Reachability.m */; };
 		285F000E1B2D316F003B281E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F000D1B2D316F003B281E /* main.m */; };
 		285F00111B2D316F003B281E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F00101B2D316F003B281E /* AppDelegate.m */; };
 		285F001A1B2D316F003B281E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F00181B2D316F003B281E /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		2838604F1B5258A8007723E6 /* WhatsMelbourne 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WhatsMelbourne 4.xcdatamodel"; sourceTree = "<group>"; };
 		283860501B5262BE007723E6 /* WhatsMelbourne 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WhatsMelbourne 5.xcdatamodel"; sourceTree = "<group>"; };
+		283860511B528E1C007723E6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		283860521B528E1C007723E6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		285F00081B2D316F003B281E /* WhatsMelbourne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsMelbourne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F000C1B2D316F003B281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F000D1B2D316F003B281E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				28B7EB001B2EC5D00084B62F /* WhatsMelbourne.xcdatamodeld */,
 				285F000F1B2D316F003B281E /* AppDelegate.h */,
 				285F00101B2D316F003B281E /* AppDelegate.m */,
+				283860511B528E1C007723E6 /* Reachability.h */,
+				283860521B528E1C007723E6 /* Reachability.m */,
 				285F003E1B2D4483003B281E /* Event.h */,
 				285F003F1B2D4483003B281E /* Event.m */,
 				285F00181B2D316F003B281E /* Main.storyboard */,
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283860531B528E1C007723E6 /* Reachability.m in Sources */,
 				285F00401B2D4483003B281E /* Event.m in Sources */,
 				76F7D01B1B2F2A7500837E94 /* SavedEventViewController.m in Sources */,
 				28B7EB021B2EC5D00084B62F /* WhatsMelbourne.xcdatamodeld in Sources */,
