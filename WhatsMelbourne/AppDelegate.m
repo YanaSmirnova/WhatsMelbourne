@@ -56,6 +56,27 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    //text tint color
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    //customize UITabBar Items
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    
+    UITabBarItem *tabFavourites = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabAllEvents = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabByLocation = [tabBar.items objectAtIndex:2];
+    
+    UIImage *favoritesIconImage = [[UIImage imageNamed:@"Favorites"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIImage *searchIconImage = [[UIImage imageNamed:@"Search"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIImage *locationIconImage = [[UIImage imageNamed:@"Near_Me"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    
+    tabFavourites = [tabFavourites initWithTitle:@"Favorites" image:favoritesIconImage selectedImage:favoritesIconImage];
+    tabAllEvents = [tabAllEvents initWithTitle:@"All Events" image:searchIconImage selectedImage:searchIconImage];
+    tabByLocation = [tabByLocation initWithTitle:@"By Location" image:locationIconImage selectedImage:locationIconImage];   
+    
 }
 
 #pragma mark - Core Data stack
