@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSMutableArray *events;
 @property (nonatomic, strong) NSString *locationSearch;
 @property (strong, nonatomic) NSString *locationName;
+@property (weak, nonatomic) IBOutlet UINavigationItem *eventsTitle;
 
 @end

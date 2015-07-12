@@ -25,6 +25,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.locationSearch != nil) {
+        NSMutableString *eventAtLocation = [[NSMutableString alloc]initWithString:@"Events in "];
+        [eventAtLocation appendString:self.locationName];
+        NSString *eventAtLocationString = [NSString stringWithString:eventAtLocation];
+        [self.eventsTitle setTitle:eventAtLocationString];
+    }    
+    
     self.events = [NSMutableArray array];
     
     [self performAPIRequest];
