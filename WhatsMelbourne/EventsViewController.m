@@ -37,6 +37,9 @@
     
     [self performAPIRequest];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(performAPIRequest) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,18 +71,25 @@
     
     Event *event = [self.events objectAtIndex:indexPath.row];
     
-    if ( [event.thumbnail isKindOfClass:[NSString class]]) {
-        NSURL *thumbnailURL = [event imageURL:event.thumbnail];
-        NSData *imageData = [NSData dataWithContentsOfURL:thumbnailURL];
-        UIImage *image = [UIImage imageWithData:imageData];        
-        cell.thumbnailImageView.image = image;
-    } else {
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"square.png"];
-    }
-    
     cell.nameLabel.text = event.title;
     cell.dateLabel.text = event.dateSummary;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+        NSURL *thumbnailURL = [event imageURL:event.thumbnail];
+        NSData *imageData = [NSData dataWithContentsOfURL:thumbnailURL];
+        
+        if (imageData != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+                [cell setNeedsLayout];
+            });
+        }
+    });
+        
+    cell.thumbnailImageView.image = [UIImage imageNamed:@"square.png"];
     
     return cell;
 }
@@ -91,6 +101,8 @@
 
 - (void)performAPIRequest
 {
+    [self.events removeAllObjects];
+    
     NSString *urlString = @"http://api.eventfinda.com.au/v2/events.json?location=20";
     if (self.locationSearch != nil) {
         urlString = [NSString stringWithFormat:@"http://api.eventfinda.com.au/v2/events.json?location=%@",_locationSearch];
@@ -141,23 +153,27 @@
                 event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
                 event.venue = [eventDictionary objectForKey:@"address"];
                 event.thumbnail = thumbnailImage;
-                NSLog(@"Thumbnail: %@", thumbnailImage);
                 if (biggerImage == nil) {
                     event.biggerImage = thumbnailImage;
                 }
                 else {
                     event.biggerImage = biggerImage;
-                }                
-                NSLog(@"Bigger: %@", biggerImage);
+                }
                 
                 [self.events addObject:event];
         
-                dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{                    
+                    //[spinner stopAnimating];
                     [self.tableView reloadData];
+                    
+                    if ([self.refreshControl isRefreshing]) {
+                        [self.refreshControl endRefreshing];
+                    }
                 });
             }
     }];
     
+    NSLog(@"Data Refreshed");
     [task resume];
 }
 
@@ -168,7 +184,6 @@
         Event *event = [self.events objectAtIndex:indexPath.row];
         WebViewController *wbc = (WebViewController *)segue.destinationViewController;
         wbc.eventId = event.numberId;
-        NSLog(@"ID passed: %d", event.numberId);
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;

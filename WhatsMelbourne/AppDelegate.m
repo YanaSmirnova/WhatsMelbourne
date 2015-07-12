@@ -69,9 +69,9 @@
     UITabBarItem *tabAllEvents = [tabBar.items objectAtIndex:1];
     UITabBarItem *tabByLocation = [tabBar.items objectAtIndex:2];
     
-    UIImage *favoritesIconImage = [[UIImage imageNamed:@"Favorites"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImage *searchIconImage = [[UIImage imageNamed:@"Search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImage *locationIconImage = [[UIImage imageNamed:@"Near_Me"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *favoritesIconImage = [[UIImage imageNamed:@"Favorites"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *searchIconImage = [[UIImage imageNamed:@"Search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *locationIconImage = [[UIImage imageNamed:@"Near_Me"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     tabFavourites = [tabFavourites initWithTitle:@"Favorites" image:favoritesIconImage selectedImage:favoritesIconImage];
     tabAllEvents = [tabAllEvents initWithTitle:@"All Events" image:searchIconImage selectedImage:searchIconImage];

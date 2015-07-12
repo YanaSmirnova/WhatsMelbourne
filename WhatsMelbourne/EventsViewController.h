@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *events;
 @property (nonatomic, strong) NSString *locationSearch;
 @property (strong, nonatomic) NSString *locationName;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UINavigationItem *eventsTitle;
 
 @end
