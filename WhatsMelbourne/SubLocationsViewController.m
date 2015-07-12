@@ -17,7 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.locationTitle setTitle:self.parentName];
+    
     self.locations = [NSMutableArray array];
+    
     [self performAPIRequest];
 }
 
@@ -32,10 +35,14 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.locations count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -110,6 +117,7 @@
         Location *location = [self.locations objectAtIndex:indexPath.row];
         EventsViewController *ewc = (EventsViewController *)segue.destinationViewController;
         ewc.locationSearch = location.locationId;
+        ewc.locationName = location.locationName;
         NSLog(@"%@", location.locationId);
     }
 }

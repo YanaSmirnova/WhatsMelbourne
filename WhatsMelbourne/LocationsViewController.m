@@ -32,10 +32,14 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.locations count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -106,6 +110,7 @@
         Location *location = [self.locations objectAtIndex:indexPath.row];
         SubLocationsViewController *slwc = (SubLocationsViewController *)segue.destinationViewController;
         slwc.parentId = location.locationId;
+        slwc.parentName = location.locationName;
     }
 }
 

@@ -14,24 +14,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="86a-F6-CnI" detailTextLabel="m6e-8H-GUg" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="yfD-KN-5tw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="yfD-KN-5tw">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfD-KN-5tw" id="WBi-pd-i8h">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="86a-F6-CnI">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m6e-8H-GUg">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="3Qh-Fs-Qlw" kind="push" identifier="showEvent" trigger="accessoryAction" id="vJO-Ru-l1U"/>
@@ -43,7 +29,9 @@
                             <outlet property="delegate" destination="twx-Lw-zgC" id="4Re-wG-snV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Events" id="E1O-NP-P6g"/>
+                    <navigationItem key="navigationItem" title="Events" id="E1O-NP-P6g">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Pji-WY-Jgk"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIn-xY-ZRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="618" y="-552"/>
         </scene>
-        <!--Locations View Controller-->
+        <!--Melbourne-->
         <scene sceneID="tzR-HO-SKf">
             <objects>
                 <tableViewController id="i0N-Gc-71M" customClass="LocationsViewController" sceneMemberID="viewController">
@@ -308,7 +296,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="XyH-dG-Erw" detailTextLabel="xsc-By-yR2" style="IBUITableViewCellStyleValue1" id="nbi-op-lH3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="XyH-dG-Erw" detailTextLabel="xsc-By-yR2" rowHeight="60" style="IBUITableViewCellStyleValue1" id="nbi-op-lH3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nbi-op-lH3" id="Yek-h2-adb">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -322,7 +310,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xsc-By-yR2">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
-                                            <color key="textColor" name="knobColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" red="0.047058823529411764" green="0.49803921568627452" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -337,13 +325,15 @@
                             <outlet property="delegate" destination="i0N-Gc-71M" id="7eq-nw-ly1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AMH-OC-lye"/>
+                    <navigationItem key="navigationItem" title="Melbourne" id="AMH-OC-lye">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="zJF-cc-7i0"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcW-92-h5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="104" y="1040"/>
         </scene>
-        <!--Sub Locations View Controller-->
+        <!--Location-->
         <scene sceneID="uK7-px-qKJ">
             <objects>
                 <tableViewController id="uTE-el-n2X" customClass="SubLocationsViewController" sceneMemberID="viewController">
@@ -352,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="wIl-tV-2Lj" detailTextLabel="lVZ-vd-JiW" style="IBUITableViewCellStyleValue1" id="vfc-tZ-xPh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="wIl-tV-2Lj" detailTextLabel="lVZ-vd-JiW" rowHeight="60" style="IBUITableViewCellStyleValue1" id="vfc-tZ-xPh">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vfc-tZ-xPh" id="bbR-7D-yh3">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -366,7 +356,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lVZ-vd-JiW">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
-                                            <color key="textColor" name="knobColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" red="0.047058823529411764" green="0.49803921568627452" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -381,7 +371,12 @@
                             <outlet property="delegate" destination="uTE-el-n2X" id="Vfg-Wi-u9Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qNZ-3n-QZc"/>
+                    <navigationItem key="navigationItem" title="Location" id="qNZ-3n-QZc">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="NFJ-DJ-e1L"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="locationTitle" destination="qNZ-3n-QZc" id="vDy-Lv-gTI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hC-6L-smq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -420,7 +415,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="x8n-nd-9Cb"/>
+        <segue reference="Lff-tp-j6c"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -78,6 +78,8 @@
                 cell = [nib objectAtIndex:0];
             }
             
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
             // Fetch Record
             NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
             
@@ -133,6 +135,8 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
     
     // Fetch Record
     NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];

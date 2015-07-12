@@ -14,5 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray *locations;
 @property (strong, nonatomic) NSString *parentId;
+@property (strong, nonatomic) NSString *parentName;
+@property (weak, nonatomic) IBOutlet UINavigationItem *locationTitle;
 
 @end

@@ -70,6 +70,7 @@
     
     cell.nameLabel.text = event.title;
     cell.dateLabel.text = event.dateSummary;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
     
     return cell;
 }

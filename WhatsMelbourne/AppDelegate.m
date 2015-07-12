@@ -69,14 +69,13 @@
     UITabBarItem *tabAllEvents = [tabBar.items objectAtIndex:1];
     UITabBarItem *tabByLocation = [tabBar.items objectAtIndex:2];
     
-    UIImage *favoritesIconImage = [[UIImage imageNamed:@"Favorites"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-    UIImage *searchIconImage = [[UIImage imageNamed:@"Search"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-    UIImage *locationIconImage = [[UIImage imageNamed:@"Near_Me"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIImage *favoritesIconImage = [[UIImage imageNamed:@"Favorites"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *searchIconImage = [[UIImage imageNamed:@"Search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *locationIconImage = [[UIImage imageNamed:@"Near_Me"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
     tabFavourites = [tabFavourites initWithTitle:@"Favorites" image:favoritesIconImage selectedImage:favoritesIconImage];
     tabAllEvents = [tabAllEvents initWithTitle:@"All Events" image:searchIconImage selectedImage:searchIconImage];
-    tabByLocation = [tabByLocation initWithTitle:@"By Location" image:locationIconImage selectedImage:locationIconImage];   
-    
+    tabByLocation = [tabByLocation initWithTitle:@"By Location" image:locationIconImage selectedImage:locationIconImage];    
 }
 
 #pragma mark - Core Data stack
