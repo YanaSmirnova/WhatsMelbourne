@@ -179,7 +179,8 @@
         SavedEventViewController *sevc = (SavedEventViewController *)segue.destinationViewController;
         sevc.eventTitle = [record valueForKey:@"title"];
         sevc.eventDateSum = [record valueForKey:@"dateSummary"];
-        sevc.eventImageData = [record valueForKey:@"imageThumb"];
+        sevc.eventImageThumb = [record valueForKey:@"imageThumb"];
+        sevc.eventImageBig = [record valueForKey:@"imageBig"];
         sevc.eventVenue = [record valueForKey:@"venue"];
     }
 }

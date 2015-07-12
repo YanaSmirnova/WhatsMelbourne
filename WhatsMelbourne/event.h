@@ -14,11 +14,12 @@
 @property (nonatomic, strong) NSString *dateSummary;
 @property (nonatomic, strong) NSString *venue;
 @property (nonatomic, strong) NSString *thumbnail;
+@property (nonatomic, strong) NSString *biggerImage;
 @property (nonatomic, strong) NSURL *url;
 
 - (id) initWithTitle:(NSString *)title;
 + (id) eventWithTitle:(NSString *)title;
 
-- (NSURL *) thumbnailURL;
+- (NSURL *) imageURL:(NSString *)imageString;
 
 @end

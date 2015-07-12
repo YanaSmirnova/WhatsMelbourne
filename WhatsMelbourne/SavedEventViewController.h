@@ -15,7 +15,8 @@
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;
 @property (strong, nonatomic) NSString *eventVenue;
-@property (strong, nonatomic) NSData *eventImageData;
+@property (strong, nonatomic) NSData *eventImageBig;
+@property (strong, nonatomic) NSData *eventImageThumb;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;

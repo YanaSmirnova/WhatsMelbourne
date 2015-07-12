@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.eventURL];
-    [self.webView loadRequest:urlRequest];
+    [self.webView loadRequest:urlRequest];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +56,13 @@
     NSManagedObject *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
     [newEvent setValue:self.eventTitle forKey:@"title"];
     [newEvent setValue:self.eventDateSum forKey:@"dateSummary"];
-    [newEvent setValue:self.eventImage forKey:@"imageThumb"];
+    
+    NSData *biggerImageData = [NSData dataWithContentsOfURL:self.eventBiggerURL];
+    [newEvent setValue:biggerImageData forKey:@"imageBig"];
+    
+    NSData *thumbImageData = [NSData dataWithContentsOfURL:self.eventThumbURL];
+    [newEvent setValue:thumbImageData forKey:@"imageThumb"];
+    
     [newEvent setValue:self.eventVenue forKey:@"venue"];
     
     NSError *error = nil;

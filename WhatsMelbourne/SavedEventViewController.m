@@ -23,11 +23,10 @@
     [self.dateLabel setText:self.eventDateSum];
     [self.venueLabel setText:self.eventVenue];
     
-    if (self.eventImageData == nil) {
-        self.imageThumb.image = [UIImage imageNamed:@"square.png"];
+    if (self.eventImageBig == nil) {
+        self.imageThumb.image = [UIImage imageWithData:self.eventImageThumb];
     } else {
-        UIImage *image = [UIImage imageWithData:self.eventImageData];
-        self.imageThumb.image = image;
+        self.imageThumb.image = [UIImage imageWithData:self.eventImageBig];
     }
 }
 

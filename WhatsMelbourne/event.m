@@ -17,6 +17,7 @@
         self.title = title;
         self.dateSummary = nil;
         self.thumbnail = nil;
+        self.biggerImage = nil;
         self.url = nil;
         self.venue = nil;
     }
@@ -28,8 +29,8 @@
     return [[self alloc] initWithTitle:title];
 }
 
-- (NSURL *) thumbnailURL {
-    return [NSURL URLWithString:self.thumbnail];
+- (NSURL *) imageURL:(NSString *)imageString {
+    return [NSURL URLWithString:imageString];
 }
 
 @end

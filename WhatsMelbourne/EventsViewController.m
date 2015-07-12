@@ -69,7 +69,8 @@
     Event *event = [self.events objectAtIndex:indexPath.row];
     
     if ( [event.thumbnail isKindOfClass:[NSString class]]) {
-        NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
+        NSURL *thumbnailURL = [event imageURL:event.thumbnail];
+        NSData *imageData = [NSData dataWithContentsOfURL:thumbnailURL];
         UIImage *image = [UIImage imageWithData:imageData];        
         cell.thumbnailImageView.image = image;
     } else {
@@ -114,6 +115,7 @@
             for (NSDictionary *eventDictionary in eventsArray) {
                 
                 NSString *thumbnailImage = nil;
+                NSString *biggerImage = nil;
         
                 NSDictionary *images = [eventDictionary objectForKey:@"images"];
                 NSArray *image_collection = [images objectForKey:@"images"];
@@ -126,6 +128,9 @@
                             if ([[transform objectForKey:@"transformation_id"] integerValue] == 15) {
                                 thumbnailImage = [transform objectForKey:@"url"];
                             }
+                            if ([[transform objectForKey:@"transformation_id"] integerValue] == 8) {
+                                biggerImage = [transform objectForKey:@"url"];
+                            }
                         }
                     }
                 }
@@ -135,6 +140,14 @@
                 event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
                 event.venue = [eventDictionary objectForKey:@"address"];
                 event.thumbnail = thumbnailImage;
+                NSLog(@"Thumbnail: %@", thumbnailImage);
+                if (biggerImage == nil) {
+                    event.biggerImage = thumbnailImage;
+                }
+                else {
+                    event.biggerImage = biggerImage;
+                }                
+                NSLog(@"Bigger: %@", biggerImage);
                 
                 [self.events addObject:event];
         
@@ -156,10 +169,9 @@
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
-        wbc.eventVenue = event.venue;
-        
-        NSData *imageData = [NSData dataWithContentsOfURL:event.thumbnailURL];
-        wbc.eventImage = imageData;
+        wbc.eventVenue = event.venue;             
+        wbc.eventThumbURL = [event imageURL:event.thumbnail];
+        wbc.eventBiggerURL = [event imageURL:event.biggerImage];
     }
 }
 

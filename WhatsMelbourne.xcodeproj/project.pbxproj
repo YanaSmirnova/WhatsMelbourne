@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2838604F1B5258A8007723E6 /* WhatsMelbourne 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WhatsMelbourne 4.xcdatamodel"; sourceTree = "<group>"; };
 		285F00081B2D316F003B281E /* WhatsMelbourne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsMelbourne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F000C1B2D316F003B281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F000D1B2D316F003B281E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -491,9 +492,10 @@
 			children = (
 				28BB4B2B1B4BCDE80090C824 /* WhatsMelbourne 2.xcdatamodel */,
 				28BB4B2C1B4BD54C0090C824 /* WhatsMelbourne 3.xcdatamodel */,
+				2838604F1B5258A8007723E6 /* WhatsMelbourne 4.xcdatamodel */,
 				28B7EB011B2EC5D00084B62F /* WhatsMelbourne.xcdatamodel */,
 			);
-			currentVersion = 28BB4B2C1B4BD54C0090C824 /* WhatsMelbourne 3.xcdatamodel */;
+			currentVersion = 2838604F1B5258A8007723E6 /* WhatsMelbourne 4.xcdatamodel */;
 			path = WhatsMelbourne.xcdatamodeld;
 			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;
