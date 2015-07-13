@@ -21,6 +21,7 @@
         self.biggerImage = nil;
         self.url = nil;
         self.venue = nil;
+        self.address = nil;
         self.lat = nil;
         self.lng = nil;
     }

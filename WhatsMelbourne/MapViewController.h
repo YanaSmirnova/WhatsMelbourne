@@ -11,4 +11,9 @@
 
 @interface MapViewController : UIViewController
 
+@property (strong, nonatomic) NSString *eventAddress;
+@property (strong, nonatomic) NSString *eventVenue;
+@property (nonatomic, strong) NSNumber *eventLat;
+@property (nonatomic, strong) NSNumber *eventLng;
+
 @end

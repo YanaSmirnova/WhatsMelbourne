@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSURL *eventThumbURL;
 @property (strong, nonatomic) NSURL *eventBiggerURL;
 @property (strong, nonatomic) NSString *eventVenue;
+@property (strong, nonatomic) NSString *eventAddress;
 @property (nonatomic, strong) NSNumber *eventLat;
 @property (nonatomic, strong) NSNumber *eventLng;
 

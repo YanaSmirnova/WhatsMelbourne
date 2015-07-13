@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSURL *eventURL;
 @property (strong, nonatomic) NSString *eventTitle;
 @property (strong, nonatomic) NSString *eventDateSum;
+@property (strong, nonatomic) NSString *eventAddress;
 @property (strong, nonatomic) NSString *eventVenue;
 @property (nonatomic, strong) NSNumber *eventLat;
 @property (nonatomic, strong) NSNumber *eventLng;
@@ -23,9 +24,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIButton *venueButton;
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageThumb;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *removeEventBtn;
+@property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

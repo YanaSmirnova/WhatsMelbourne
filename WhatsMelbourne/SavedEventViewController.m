@@ -9,6 +9,7 @@
 #import "SavedEventViewController.h"
 #import "Event.h"
 #import <CoreData/CoreData.h>
+#import "MapViewController.h"
 
 @interface SavedEventViewController ()
 
@@ -21,15 +22,14 @@
     // Do any additional setup after loading the view.
     [self.titleLabel setText:self.eventTitle];
     [self.dateLabel setText:self.eventDateSum];
-    [self.venueButton setTitle:self.eventVenue forState:UIControlStateNormal];
+    [self.venueLabel setText:self.eventVenue];
+    [self.addressButton setTitle:self.eventAddress forState:UIControlStateNormal];
     
     if (self.eventImageBig == nil) {
         self.imageThumb.image = [UIImage imageWithData:self.eventImageThumb];
     } else {
         self.imageThumb.image = [UIImage imageWithData:self.eventImageBig];
     }
-    
-    NSLog(@"Coordinates: %@ - %@", self.eventLat, self.eventLng);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +85,18 @@
     {
         NSLog(@"Cancel was selected.");
         //        [self cancelSaving];
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ( [segue.identifier isEqualToString:@"showMap"]){
+        
+        MapViewController *mvc = (MapViewController *)segue.destinationViewController;
+        mvc.eventVenue = self.eventVenue;
+        mvc.eventAddress = self.eventAddress;
+        mvc.eventLat = self.eventLat;
+        mvc.eventLng = self.eventLng;
     }
 }
 

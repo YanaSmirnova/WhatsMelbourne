@@ -182,6 +182,7 @@
         sevc.eventDateSum = [record valueForKey:@"dateSummary"];
         sevc.eventImageThumb = [record valueForKey:@"imageThumb"];
         sevc.eventImageBig = [record valueForKey:@"imageBig"];
+        sevc.eventAddress = [record valueForKey:@"address"];
         sevc.eventVenue = [record valueForKey:@"venue"];
         sevc.eventLat = [record valueForKey:@"lat"];
         sevc.eventLng = [record valueForKey:@"lng"];

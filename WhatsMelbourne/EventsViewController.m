@@ -152,7 +152,11 @@
                 event.numberId = [[eventDictionary objectForKey:@"id"] integerValue];
                 event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
                 event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
-                event.venue = [eventDictionary objectForKey:@"address"];
+                event.address = [eventDictionary objectForKey:@"address"];
+                
+                NSDictionary *locationDictionary = [eventDictionary objectForKey:@"location"];
+                event.venue = [locationDictionary objectForKey:@"name"];
+                NSLog(@"Venue name: %@", event.venue);
                 
                 NSDictionary *point = [eventDictionary objectForKey:@"point"];
                 event.lat = [point objectForKey:@"lat"];
@@ -226,6 +230,7 @@
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
         wbc.eventVenue = event.venue;
+        wbc.eventAddress = event.address;
         wbc.eventLat = event.lat;
         wbc.eventLng = event.lng;
         wbc.eventThumbURL = [event imageURL:event.thumbnail];
