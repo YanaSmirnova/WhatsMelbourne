@@ -179,6 +179,9 @@
                                     <color key="titleColor" red="0.047058823530000002" green="0.49803921569999998" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ArT-E4-8vs" kind="push" identifier="showMap" id="DDb-Go-tx1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="1561" y="-551"/>
         </scene>
-        <!--View Controller-->
+        <!--Venue on Map-->
         <scene sceneID="NP7-R1-ML4">
             <objects>
-                <viewController id="ArT-E4-8vs" sceneMemberID="viewController">
+                <viewController id="ArT-E4-8vs" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j8q-0Z-hds"/>
                         <viewControllerLayoutGuide type="bottom" id="yvI-aE-xmB"/>
@@ -225,6 +228,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Venue on Map" id="L06-BX-Hwf">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="E04-qc-c7M"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2w-VL-sCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

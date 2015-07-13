@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <GoogleMapsM4B/GoogleMaps.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 
