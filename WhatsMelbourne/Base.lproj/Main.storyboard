@@ -160,15 +160,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBa-OD-RhY">
-                                <rect key="frame" x="35" y="385" width="250" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="J8K-FF-rvz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
-                                <color key="textColor" red="0.047058823530000002" green="0.49803921569999998" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-fH-0ND">
                                 <rect key="frame" x="35" y="341" width="250" height="21"/>
                                 <constraints>
@@ -178,16 +169,27 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wuG-Kw-QaG">
+                                <rect key="frame" x="35" y="379" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="OzU-XW-8ha"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <state key="normal" title="Some Address">
+                                    <color key="titleColor" red="0.047058823530000002" green="0.49803921569999998" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9N0-wd-g4T" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="34" id="2D7-Cw-ipf"/>
+                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="8TM-OH-MuU"/>
                             <constraint firstItem="9N0-wd-g4T" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="Poh-vi-1ar"/>
                             <constraint firstAttribute="centerX" secondItem="9N0-wd-g4T" secondAttribute="centerX" constant="-0.5" id="VDW-Zp-XTM"/>
                             <constraint firstItem="XV3-58-a81" firstAttribute="top" secondItem="9N0-wd-g4T" secondAttribute="bottom" constant="29" id="bEF-rS-4ST"/>
+                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="top" secondItem="4SX-fH-0ND" secondAttribute="bottom" constant="17" id="p6M-3c-oxW"/>
                             <constraint firstItem="4SX-fH-0ND" firstAttribute="top" secondItem="XV3-58-a81" secondAttribute="bottom" constant="25" id="sAh-hE-C7M"/>
-                            <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="rBa-OD-RhY" secondAttribute="leading" id="voL-7g-PFE"/>
-                            <constraint firstItem="rBa-OD-RhY" firstAttribute="top" secondItem="4SX-fH-0ND" secondAttribute="bottom" constant="23" id="wAK-dJ-kzL"/>
                             <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="wVc-Vd-JDB"/>
                         </constraints>
                     </view>
@@ -203,12 +205,30 @@
                         <outlet property="imageThumb" destination="9N0-wd-g4T" id="lZl-SB-KRT"/>
                         <outlet property="removeEventBtn" destination="1Gs-3w-f0C" id="30M-8S-VgC"/>
                         <outlet property="titleLabel" destination="XV3-58-a81" id="YpM-Jg-yUt"/>
-                        <outlet property="venueLabel" destination="rBa-OD-RhY" id="ULh-NO-rEz"/>
+                        <outlet property="venueButton" destination="wuG-Kw-QaG" id="LVN-jR-QQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcQ-RU-VoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1561" y="-551"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NP7-R1-ML4">
+            <objects>
+                <viewController id="ArT-E4-8vs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j8q-0Z-hds"/>
+                        <viewControllerLayoutGuide type="bottom" id="yvI-aE-xmB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A0H-SK-Aic">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2w-VL-sCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="-551"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -394,9 +414,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Favorites" width="27" height="26"/>
+        <image name="Favorites" width="25" height="25"/>
         <image name="Near_Me" width="25" height="25"/>
-        <image name="Search" width="25" height="24"/>
+        <image name="Search" width="25" height="25"/>
         <image name="tabBarBackground" width="1" height="1"/>
         <image name="tabBarSelectedBackground" width="107" height="49"/>
     </resources>

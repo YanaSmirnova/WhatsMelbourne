@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GoogleMapsM4B/GoogleMaps.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
     [NSThread sleepForTimeInterval:1.5];
     
     [self customizeUserInterface];
+    [GMSServices provideAPIKey:@"AIzaSyBSKK1LGMXUKrNNixOiLwI6It9giUZDAOc"];
     
     return YES;
 }

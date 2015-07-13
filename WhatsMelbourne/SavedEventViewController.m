@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     [self.titleLabel setText:self.eventTitle];
     [self.dateLabel setText:self.eventDateSum];
-    [self.venueLabel setText:self.eventVenue];
+    [self.venueButton setTitle:self.eventVenue forState:UIControlStateNormal];
     
     if (self.eventImageBig == nil) {
         self.imageThumb.image = [UIImage imageWithData:self.eventImageThumb];
