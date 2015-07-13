@@ -10,6 +10,7 @@
 #import "Event.h"
 #import <CoreData/CoreData.h>
 #import "MapViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SavedEventViewController ()
 
@@ -25,11 +26,19 @@
     [self.venueLabel setText:self.eventVenue];
     [self.addressButton setTitle:self.eventAddress forState:UIControlStateNormal];
     
+    UIImage *imageToShow = nil;
+    
     if (self.eventImageBig == nil) {
-        self.imageThumb.image = [UIImage imageWithData:self.eventImageThumb];
+        imageToShow = [UIImage imageWithData:self.eventImageThumb];
     } else {
-        self.imageThumb.image = [UIImage imageWithData:self.eventImageBig];
+        imageToShow = [UIImage imageWithData:self.eventImageBig];
     }
+    
+    self.imageThumb.image = imageToShow;
+    
+    self.imageThumb.layer.cornerRadius = 10;
+    self.imageThumb.clipsToBounds = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {

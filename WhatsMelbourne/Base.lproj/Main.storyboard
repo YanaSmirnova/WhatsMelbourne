@@ -156,32 +156,40 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="p3L-nZ-GJC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-fH-0ND">
-                                <rect key="frame" x="35" y="341" width="250" height="21"/>
+                                <rect key="frame" x="76" y="343" width="210" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="P6z-hu-dL3"/>
+                                    <constraint firstAttribute="width" constant="210" id="fYt-Ny-iKx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Venue" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZY-dj-uU1">
-                                <rect key="frame" x="35" y="384" width="251" height="21"/>
+                                <rect key="frame" x="76" y="388" width="210" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="Msw-sJ-sac"/>
+                                    <constraint firstAttribute="width" constant="210" id="DWP-iE-32s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar-o" translatesAutoresizingMaskIntoConstraints="NO" id="iiA-if-Tsk">
+                                <rect key="frame" x="35" y="341" width="25" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="map-marker" translatesAutoresizingMaskIntoConstraints="NO" id="nk3-qA-82z">
+                                <rect key="frame" x="35" y="386" width="25" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-P5-gYD">
+                                <rect key="frame" x="35" y="432" width="25" height="25"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wuG-Kw-QaG">
-                                <rect key="frame" x="35" y="424" width="250" height="30"/>
+                                <rect key="frame" x="76" y="430" width="210" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="OzU-XW-8ha"/>
+                                    <constraint firstAttribute="width" constant="210" id="HNL-CS-GZJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Some Address">
@@ -196,15 +204,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9N0-wd-g4T" firstAttribute="top" secondItem="KOO-UT-JjI" secondAttribute="bottom" constant="34" id="2D7-Cw-ipf"/>
-                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="top" secondItem="TZY-dj-uU1" secondAttribute="bottom" constant="19" id="59Z-ac-6mK"/>
-                            <constraint firstItem="TZY-dj-uU1" firstAttribute="top" secondItem="4SX-fH-0ND" secondAttribute="bottom" constant="22" id="HAF-gy-kAn"/>
-                            <constraint firstItem="TZY-dj-uU1" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="Ihh-te-dJS"/>
+                            <constraint firstItem="TZY-dj-uU1" firstAttribute="leading" secondItem="nk3-qA-82z" secondAttribute="trailing" constant="16" id="AQa-vf-zZl"/>
+                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="centerY" secondItem="Kj8-P5-gYD" secondAttribute="centerY" id="Atk-Xv-fxH"/>
+                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="leading" secondItem="Kj8-P5-gYD" secondAttribute="trailing" constant="16" id="BJh-I7-xeI"/>
+                            <constraint firstItem="nk3-qA-82z" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="Gnj-vN-B2B"/>
+                            <constraint firstItem="nk3-qA-82z" firstAttribute="top" secondItem="4SX-fH-0ND" secondAttribute="bottom" constant="22" id="Lex-9z-d9B"/>
+                            <constraint firstItem="iiA-if-Tsk" firstAttribute="centerY" secondItem="4SX-fH-0ND" secondAttribute="centerY" id="Lig-Yq-cgz"/>
                             <constraint firstItem="9N0-wd-g4T" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="Poh-vi-1ar"/>
+                            <constraint firstItem="iiA-if-Tsk" firstAttribute="top" secondItem="XV3-58-a81" secondAttribute="bottom" constant="25" id="Si0-qS-Dqd"/>
                             <constraint firstAttribute="centerX" secondItem="9N0-wd-g4T" secondAttribute="centerX" constant="-0.5" id="VDW-Zp-XTM"/>
                             <constraint firstItem="XV3-58-a81" firstAttribute="top" secondItem="9N0-wd-g4T" secondAttribute="bottom" constant="29" id="bEF-rS-4ST"/>
-                            <constraint firstItem="wuG-Kw-QaG" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="dzq-9x-F8b"/>
-                            <constraint firstItem="4SX-fH-0ND" firstAttribute="top" secondItem="XV3-58-a81" secondAttribute="bottom" constant="25" id="sAh-hE-C7M"/>
-                            <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="XV3-58-a81" secondAttribute="leading" id="wVc-Vd-JDB"/>
+                            <constraint firstItem="4SX-fH-0ND" firstAttribute="leading" secondItem="iiA-if-Tsk" secondAttribute="trailing" constant="16" id="fYh-dz-HPX"/>
+                            <constraint firstItem="iiA-if-Tsk" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="hxC-hj-iok"/>
+                            <constraint firstItem="Kj8-P5-gYD" firstAttribute="top" secondItem="TZY-dj-uU1" secondAttribute="bottom" constant="23" id="pIu-Df-7Qg"/>
+                            <constraint firstItem="TZY-dj-uU1" firstAttribute="centerY" secondItem="nk3-qA-82z" secondAttribute="centerY" id="uoz-wC-PSn"/>
+                            <constraint firstItem="Kj8-P5-gYD" firstAttribute="leading" secondItem="9N0-wd-g4T" secondAttribute="leading" id="xVT-zc-o1h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Fbe-Yh-WD0">
@@ -435,6 +449,9 @@
         <image name="Favorites" width="25" height="25"/>
         <image name="Near_Me" width="25" height="25"/>
         <image name="Search" width="25" height="25"/>
+        <image name="calendar-o" width="25" height="25"/>
+        <image name="location-arrow" width="25" height="25"/>
+        <image name="map-marker" width="25" height="25"/>
         <image name="tabBarBackground" width="1" height="1"/>
         <image name="tabBarSelectedBackground" width="107" height="49"/>
     </resources>
