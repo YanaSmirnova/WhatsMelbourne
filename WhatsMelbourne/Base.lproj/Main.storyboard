@@ -179,12 +179,24 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar-o" translatesAutoresizingMaskIntoConstraints="NO" id="iiA-if-Tsk">
                                 <rect key="frame" x="35" y="341" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="6oT-wi-ijt"/>
+                                    <constraint firstAttribute="height" constant="25" id="Ff6-hH-4gT"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="map-marker" translatesAutoresizingMaskIntoConstraints="NO" id="nk3-qA-82z">
                                 <rect key="frame" x="35" y="386" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="XNx-4L-UyZ"/>
+                                    <constraint firstAttribute="height" constant="25" id="viq-Ya-3Bz"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-P5-gYD">
                                 <rect key="frame" x="35" y="432" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="YeK-Sq-I8b"/>
+                                    <constraint firstAttribute="height" constant="25" id="oRZ-zb-cpY"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wuG-Kw-QaG">
                                 <rect key="frame" x="76" y="430" width="210" height="29"/>
