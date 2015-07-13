@@ -67,7 +67,13 @@
     NSData *thumbImageData = [NSData dataWithContentsOfURL:self.eventThumbURL];
     [newEvent setValue:thumbImageData forKey:@"imageThumb"];
     
+    NSLog(@"Coordinates of event: %@, %@", self.eventLat, self.eventLng);
+    
     [newEvent setValue:self.eventVenue forKey:@"venue"];
+    //NSNumber *latNumber = [NSNumber numberWithDouble:self.eventLat];
+    [newEvent setValue:self.eventLat forKey:@"lat"];
+    //NSNumber *lngNumber = [NSNumber numberWithDouble:self.eventLng];
+    [newEvent setValue:self.eventLng forKey:@"lng"];
     
     NSError *error = nil;
     // Save the object to persistent store

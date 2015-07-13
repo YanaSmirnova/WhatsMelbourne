@@ -153,6 +153,11 @@
                 event.dateSummary = [eventDictionary objectForKey:@"datetime_summary"];
                 event.url = [NSURL URLWithString:[eventDictionary objectForKey:@"url"]];
                 event.venue = [eventDictionary objectForKey:@"address"];
+                
+                NSDictionary *point = [eventDictionary objectForKey:@"point"];
+                event.lat = [point objectForKey:@"lat"];
+                event.lng = [point objectForKey:@"lng"];
+                
                 event.thumbnail = thumbnailImage;
                 if (biggerImage == nil) {
                     event.biggerImage = thumbnailImage;
@@ -220,7 +225,9 @@
         wbc.eventURL = event.url;
         wbc.eventTitle = event.title;
         wbc.eventDateSum = event.dateSummary;
-        wbc.eventVenue = event.venue;             
+        wbc.eventVenue = event.venue;
+        wbc.eventLat = event.lat;
+        wbc.eventLng = event.lng;
         wbc.eventThumbURL = [event imageURL:event.thumbnail];
         wbc.eventBiggerURL = [event imageURL:event.biggerImage];
     }

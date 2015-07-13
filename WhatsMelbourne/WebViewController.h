@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSURL *eventThumbURL;
 @property (strong, nonatomic) NSURL *eventBiggerURL;
 @property (strong, nonatomic) NSString *eventVenue;
+@property (nonatomic, strong) NSNumber *eventLat;
+@property (nonatomic, strong) NSNumber *eventLng;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEventBtn;

@@ -28,6 +28,8 @@
     } else {
         self.imageThumb.image = [UIImage imageWithData:self.eventImageBig];
     }
+    
+    NSLog(@"Coordinates: %@ - %@", self.eventLat, self.eventLng);
 }
 
 - (void)didReceiveMemoryWarning {

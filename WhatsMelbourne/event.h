@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *dateSummary;
 @property (nonatomic, strong) NSString *venue;
+@property (nonatomic, strong) NSNumber *lat;
+@property (nonatomic, strong) NSNumber *lng;
 @property (nonatomic, strong) NSString *thumbnail;
 @property (nonatomic, strong) NSString *biggerImage;
 @property (nonatomic, strong) NSURL *url;
